@@ -1,0 +1,5 @@
+# Java Development
+out/
+
+# Workshop Development
+.workshop.lock
