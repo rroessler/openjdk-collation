@@ -29,7 +29,7 @@ public class Application {
         // show some details about the incoming printer instance
         System.out.println("Printer Name: " + printService.getName());
 
-        printRequestAttributes.add(new Copies(1));
+        printRequestAttributes.add(new Copies(2));
         printRequestAttributes.add(OrientationRequested.PORTRAIT);
 
         // check if collation is supported on this printer
@@ -41,7 +41,7 @@ public class Application {
         }
 
         // prepare the document to be set to the mock-printer
-        String filename = "document.txt";
+        String filename = "document.ps";
         DocFlavor flavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
         Doc document = new SimpleDoc(new FileInputStream(filename), flavor, null);
 

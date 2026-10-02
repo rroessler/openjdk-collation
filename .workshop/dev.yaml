@@ -1,5 +1,5 @@
 name: dev
-base: ubuntu@22.04
+base: ubuntu@24.04
 
 sdks:
     - name: openjdk
@@ -7,12 +7,6 @@ sdks:
 
 actions:
     prepare: bash hooks/prepare.sh
-
-    unapplied: |
-        javac src/Application.java -d out/
-        java -cp out/ Application
-
-    feature: |
-        javac src/Application.java -d out/
-        javac -XDignore.symbol.file --patch-module java.desktop=src/java.desktop src/java.desktop/sun/print/UnixPrintJob.java -d out/
-        java --patch-module java.desktop=out -cp out/ Application
+    test: bash hooks/execute.sh test
+    start: bash hooks/execute.sh start
+    buggy: bash hooks/execute.sh buggy
